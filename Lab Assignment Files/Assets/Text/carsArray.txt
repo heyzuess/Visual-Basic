@@ -1,0 +1,2 @@
+'55 Chevy Bel Air','57 Jaguar XK150','60 Chevy Pickup Apache Truck','55 Ford Thunderbird','55 Ford Fairlane','59 Edsel Corsair Convertible','54 MG Roadster','59 Volkswagen Beetle Classic','34 Plymouth Coupe Steel Body','30 Ford Hiboy','63 Cadillac Eldorado'
+26300,79900,27899,99900,34500,74700,36888,22800,39500,45800,44770

@@ -1,0 +1,20 @@
+New York City
+441600
+Los Angeles
+350100
+Chicago
+167400
+Houston
+167800
+Philadelphia
+209800
+Phoenix
+159100
+San Antonio
+160600
+San Diego
+405400
+Dallas
+157200
+San Jose
+685000

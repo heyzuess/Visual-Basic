@@ -1,0 +1,22 @@
+55 Chevy Bel Air
+26300
+57 Jaguar XK150
+79900
+60 Chevy Pickup Apache Truck
+27899
+55 Ford Thunderbird
+99900
+55 Ford Fairlane
+34500
+59 Edsel Corsair Convertible
+74700
+54 MG Roadster
+36888
+59 Volkswagen Beetle Classic
+22800
+34 Plymouth Coupe Steel Body
+39500
+30 Ford Hiboy
+45800
+63 Cadillac Eldorado
+44770

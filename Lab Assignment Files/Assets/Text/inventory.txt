@@ -1,0 +1,35 @@
+Point of Sale Register
+A101
+1599.99
+12
+Store Display Racks
+D208
+49.99
+112
+Mannequins
+D209
+345.00
+41
+End Cap Displays
+D210
+118.99
+16
+Hangars
+D211
+1.19
+1200
+Office Computers
+E101
+629.99
+11
+Chairs
+F310
+145.00
+32
+Sofa
+F311
+829.99
+6
+
+
+
