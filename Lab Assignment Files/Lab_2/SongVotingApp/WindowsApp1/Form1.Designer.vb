@@ -22,7 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.GenreList = New System.Windows.Forms.ComboBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Song1 = New System.Windows.Forms.Label()
@@ -32,17 +32,20 @@ Partial Class Form1
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Song3 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.VoteButton = New System.Windows.Forms.Button()
+        Me.GenreVoteCount = New System.Windows.Forms.Label()
+        Me.GenreVoteCountLabel = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'ComboBox1
+        'GenreList
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(127, 52)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(139, 21)
-        Me.ComboBox1.TabIndex = 0
+        Me.GenreList.FormattingEnabled = True
+        Me.GenreList.Location = New System.Drawing.Point(128, 19)
+        Me.GenreList.Name = "GenreList"
+        Me.GenreList.Size = New System.Drawing.Size(139, 21)
+        Me.GenreList.TabIndex = 0
         '
         'PictureBox1
         '
@@ -57,11 +60,13 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(31, 55)
+        Me.Label1.ImageAlign = System.Drawing.ContentAlignment.TopRight
+        Me.Label1.Location = New System.Drawing.Point(32, 22)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(79, 13)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Select a genre:"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Song1
         '
@@ -128,6 +133,9 @@ Partial Class Form1
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.VoteButton)
+        Me.GroupBox1.Controls.Add(Me.GenreVoteCount)
+        Me.GroupBox1.Controls.Add(Me.GenreVoteCountLabel)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.Song3)
         Me.GroupBox1.Controls.Add(Me.Label3)
@@ -135,12 +143,40 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Song1)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.ComboBox1)
+        Me.GroupBox1.Controls.Add(Me.GenreList)
         Me.GroupBox1.Location = New System.Drawing.Point(315, 6)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(299, 288)
         Me.GroupBox1.TabIndex = 9
         Me.GroupBox1.TabStop = False
+        '
+        'VoteButton
+        '
+        Me.VoteButton.Location = New System.Drawing.Point(193, 53)
+        Me.VoteButton.Name = "VoteButton"
+        Me.VoteButton.Size = New System.Drawing.Size(75, 23)
+        Me.VoteButton.TabIndex = 11
+        Me.VoteButton.Text = "Vote"
+        Me.VoteButton.UseVisualStyleBackColor = True
+        '
+        'GenreVoteCount
+        '
+        Me.GenreVoteCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.GenreVoteCount.Location = New System.Drawing.Point(128, 53)
+        Me.GenreVoteCount.Name = "GenreVoteCount"
+        Me.GenreVoteCount.Size = New System.Drawing.Size(48, 23)
+        Me.GenreVoteCount.TabIndex = 10
+        Me.GenreVoteCount.Text = "0"
+        Me.GenreVoteCount.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'GenreVoteCountLabel
+        '
+        Me.GenreVoteCountLabel.Location = New System.Drawing.Point(11, 53)
+        Me.GenreVoteCountLabel.Name = "GenreVoteCountLabel"
+        Me.GenreVoteCountLabel.Size = New System.Drawing.Size(100, 23)
+        Me.GenreVoteCountLabel.TabIndex = 9
+        Me.GenreVoteCountLabel.Text = "Vote Count:"
+        Me.GenreVoteCountLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Form1
         '
@@ -158,7 +194,7 @@ Partial Class Form1
 
     End Sub
 
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents GenreList As ComboBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Song1 As Label
@@ -168,4 +204,7 @@ Partial Class Form1
     Friend WithEvents Label5 As Label
     Friend WithEvents Song3 As Label
     Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents VoteButton As Button
+    Friend WithEvents GenreVoteCount As Label
+    Friend WithEvents GenreVoteCountLabel As Label
 End Class

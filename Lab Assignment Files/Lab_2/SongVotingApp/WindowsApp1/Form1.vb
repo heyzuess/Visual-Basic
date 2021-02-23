@@ -10,11 +10,14 @@ Public Class Form1
         Public Name As String
         Public Image As Object = Nothing
         Public SongList As List(Of String) = Nothing
+        Public VoteCount As Integer = 0
 
+        ' Overloaded constructor
         Public Sub New(GenreName As String)
             Me.New(GenreName, Nothing)
         End Sub
 
+        ' Main constructor
         Public Sub New(GenreName As String, GenreImage As Object)
             Name = GenreName
             Image = GenreImage
@@ -46,7 +49,7 @@ Public Class Form1
         ' Loop through each genre and add 3 songs to each list
         For Each key In myLib.Keys
             ' Add genres to combo box
-            ComboBox1.Items.Add(key)
+            GenreList.Items.Add(key)
 
             ' Get current genre object from selected genre for non blank genres
             If myLib.TryGetValue(key, tempGenre) And key > "" Then
@@ -80,15 +83,16 @@ Public Class Form1
         'MsgBox(songDisplay.Count.ToString())
 
         ' Set initial image and selection text
-        PictureBox1.Image = GetSelectionImage(ComboBox1.Text)
-        UpdateSongDisplay(ComboBox1.Text)
+        PictureBox1.Image = GetSelectionImage(GenreList.Text)
+        UpdateSongDisplay(GenreList.Text)
     End Sub
 
     'On select of option in combo box
-    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+    Private Sub GenreList_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GenreList.SelectedIndexChanged
         ' Set the image from the currently selected genre
-        PictureBox1.Image = GetSelectionImage(ComboBox1.Text)
-        UpdateSongDisplay(ComboBox1.Text)
+        PictureBox1.Image = GetSelectionImage(GenreList.Text)
+        UpdateSongDisplay(GenreList.Text)
+        UpdateVoteCount(GenreList.Text, 0)
     End Sub
 
     ' A function to return the image object from the dictionary index
@@ -105,11 +109,14 @@ Public Class Form1
         Return returnVal
     End Function
 
+    ' This updates the song display on the change of the drop down list
     Private Sub UpdateSongDisplay(GenreName As String)
         Dim tempList As List(Of String) = Nothing
         Dim tempGenre As SongGenre = Nothing
 
         Dim hasValues As Boolean
+
+        ' Make sure the lib has the genre selected
         hasValues = myLib.TryGetValue(GenreName, tempGenre)
 
         ' Test
@@ -136,5 +143,30 @@ Public Class Form1
                 songDisplay(i).Text = ""
             Next
         End If
+    End Sub
+
+    ' Handles the vote button click event
+    Private Sub VoteButton_Click(sender As Object, e As EventArgs) Handles VoteButton.Click
+        UpdateVoteCount(GenreList.Text, 1)
+    End Sub
+
+    ' Used to update the vote display and counter
+    Private Sub UpdateVoteCount(GenreName As String, VoteInt As Integer)
+        Dim myGenre As SongGenre = Nothing
+
+        ' Test
+        'MsgBox(GenreList.Text + " " + VoteInt.ToString())
+
+        ' If genre is not blank then incriment vote count on genre
+        ' Else alert the user that they can not incriment an unkown genre
+        If myLib.TryGetValue(GenreList.Text, myGenre) And GenreList.Text > "" Then
+            myGenre.VoteCount = myGenre.VoteCount + VoteInt
+        ElseIf GenreList.Text = "" And VoteInt <> 0 Then
+            MsgBox("Please select a valid genre before voting", MsgBoxStyle.Information, "Vote Error")
+            Return
+        End If
+
+        ' Update the genre vote count label for the selected genre
+        GenreVoteCount.Text = myGenre.VoteCount.ToString()
     End Sub
 End Class
